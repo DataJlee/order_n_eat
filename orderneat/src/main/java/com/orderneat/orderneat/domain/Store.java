@@ -1,11 +1,12 @@
 package com.orderneat.orderneat.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class Store {
 
     @Id
@@ -22,5 +23,6 @@ public class Store {
 
     private String contact;
 
+    @Enumerated(EnumType.STRING)
     private StoreStatus status;
 }
