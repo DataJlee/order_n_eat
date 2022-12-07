@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-public class OrderLine {
+public class OrderLine extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
