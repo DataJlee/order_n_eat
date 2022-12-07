@@ -28,6 +28,12 @@ public class Order extends BaseEntity{
     @Enumerated(value = EnumType.STRING)
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderLine> orderLine = new ArrayList<>();
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderLine> orderLines = new ArrayList<>();
+
+    //연관관계 편의 메서드
+    public void addOrderLine(OrderLine orderLine){
+        orderLines.add(orderLine);
+        orderLine.setOrder(this);
+    }
 }
