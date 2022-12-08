@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @Table(name = "orders")
-public class Order extends BaseEntity{
+public class Order extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
