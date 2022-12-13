@@ -24,7 +24,7 @@ public class MemberServiceTest {
     public final String EMAIL = "testemail@naver.com";
     public final String PASSWORD = "PASSWORD123";
     public final String GENDER = "M";
-    public final Integer AGE = 21;
+    public final String BIRTH = "2001";
 
     @Test
     public void join() throws Exception{
@@ -33,7 +33,7 @@ public class MemberServiceTest {
                 .email(EMAIL)
                 .password(PASSWORD)
                 .gender(GENDER)
-                .age(AGE)
+                .yearOfBirth(BIRTH)
                 .build();
         //when
         Long savedId = memberService.join(newMember);
