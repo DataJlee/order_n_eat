@@ -21,6 +21,10 @@ public class MenuRepository {
         }
     }
 
+    public Menu findOne(Long id){
+        return em.find(Menu.class, id);
+    }
+
     public List<Menu> findAll(){
         return em.createQuery("select m from Menu m", Menu.class)
                 .getResultList();
