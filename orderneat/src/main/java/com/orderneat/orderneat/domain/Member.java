@@ -12,6 +12,7 @@ public class Member extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "member_id")
     private Long id;
 
     private String email;
@@ -20,17 +21,17 @@ public class Member extends BaseTimeEntity{
 
     private String gender;
 
-    private Integer age;
+    private String yearOfBirth;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @Builder
-    public Member(String email, String password, String gender, Integer age){
+    public Member(String email, String password, String gender, String yearOfBirth){
         this.email = email;
         this.password = password;
         this.gender = gender;
-        this.age = age;
+        this.yearOfBirth = yearOfBirth;
         this.role = Role.USER;
     }
 
