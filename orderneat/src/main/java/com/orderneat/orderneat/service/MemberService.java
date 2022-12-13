@@ -15,11 +15,6 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    /**
-     * 회원가입
-     * @param member
-     * @return Long id
-     */
     @Transactional
     public Long join(Member member){
         validateDuplicateMember(member);
@@ -39,6 +34,6 @@ public class MemberService {
     }
 
     public Member findMember(Long id){
-        return memberRepository.fineOne(id);
+        return memberRepository.findOne(id);
     }
 }
