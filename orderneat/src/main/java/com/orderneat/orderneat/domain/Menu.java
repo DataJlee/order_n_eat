@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-@NoArgsConstructor
 public class Menu extends BaseTimeEntity{
 
     @Id
@@ -16,26 +15,36 @@ public class Menu extends BaseTimeEntity{
     @Column(name = "menu_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
     private Store store;
 
     private String category;
 
+    private String name;
+
     private Integer price;
 
-//    private String menuImgUrl;
+    private String imgUrl;
 
     private String desc;
 
     @Enumerated(EnumType.STRING)
     private MenuStatus status;
 
-    public Menu(Store store, String category, Integer price, String desc, MenuStatus status){
-        this.store = store;
-        this.category = category;
-        this.price = price;
-        this.desc = desc;
-        this.status = status;
+    protected Menu(){
+    }
+
+    public static Menu createMenu(Store store, String category, String name, Integer price, String imgUrl, String desc){
+        Menu menu = new Menu();
+        menu.setStore(store);
+        menu.setCategory(category);
+        menu.setName(name);
+        menu.setPrice(price);
+        menu.setImgUrl(imgUrl);
+        menu.setDesc(desc);
+        menu.setStatus(MenuStatus.AVAILABLE);
+
+        return menu;
     }
 }
