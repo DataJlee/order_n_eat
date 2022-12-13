@@ -25,4 +25,15 @@ public class Store extends BaseTimeEntity{
 
     @Enumerated(EnumType.STRING)
     private StoreStatus status;
+
+    public boolean isOpen(){
+        boolean isOpen = false;
+        if (status == StoreStatus.OPEN) {
+            isOpen = true;
+        }
+        else if (status == StoreStatus.CLOSED) {
+            isOpen = false;
+        }
+        return isOpen;
+    }
 }
