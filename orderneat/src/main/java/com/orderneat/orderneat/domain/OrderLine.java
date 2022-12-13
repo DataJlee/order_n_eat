@@ -22,7 +22,20 @@ public class OrderLine extends BaseTimeEntity{
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    private Integer orderPrice;
+    private int price;
 
-    private Integer orderQuantity;
+    private int quantity;
+
+    public static OrderLine createOrderLine(Menu menu, int price, int quantity){
+        OrderLine orderLine = new OrderLine();
+        orderLine.setMenu(menu);
+        orderLine.setPrice(price);
+        orderLine.setQuantity(quantity);
+
+        return orderLine;
+    }
+
+    public int getTotalPrice(){
+        return getPrice() * getQuantity();
+    }
 }
