@@ -29,20 +29,29 @@ public class MemberServiceTest {
     @Test
     public void join() throws Exception{
         //given
-        Member newMember = new Member(
-                EMAIL, PASSWORD, GENDER, AGE
-        );
+        Member newMember = Member.builder()
+                .email(EMAIL)
+                .password(PASSWORD)
+                .gender(GENDER)
+                .age(AGE)
+                .build();
         //when
         Long savedId = memberService.join(newMember);
         //then
-        assertEquals(newMember, memberRepository.fineOne(savedId));
+        assertEquals(newMember, memberRepository.findOne(savedId));
     }
 
     @Test(expected = IllegalStateException.class)
     public void validateDuplicateMember() throws Exception{
         //given
-        Member member1 = new Member(EMAIL, PASSWORD);
-        Member member2 = new Member(EMAIL, PASSWORD);
+        Member member1 = Member.builder()
+                .email(EMAIL)
+                .password(PASSWORD)
+                .build();
+        Member member2 = Member.builder()
+                .email(EMAIL)
+                .password(PASSWORD)
+                .build();
         //when
         memberService.join(member1);
         memberService.join(member2);
