@@ -11,7 +11,7 @@ public class OrderLine extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @Column(name = "order_line_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -22,8 +22,10 @@ public class OrderLine extends BaseTimeEntity{
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
+    @Column(name = "order_line_price")
     private int price;
 
+    @Column(name = "order_line_quantity")
     private int quantity;
 
     public static OrderLine createOrderLine(Menu menu, int price, int quantity){
