@@ -3,6 +3,7 @@ package com.orderneat.orderneat.service;
 import com.orderneat.orderneat.domain.Menu;
 import com.orderneat.orderneat.domain.MenuStatus;
 import com.orderneat.orderneat.domain.Store;
+import com.orderneat.orderneat.domain.StoreStatus;
 import com.orderneat.orderneat.repository.MenuRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,11 +29,12 @@ public class MenuServiceTest {
         //given
         Store store = new Store();
         store.setName("하남돼지집");
-        Menu newMenu = new Menu(
-                store, "메인", 12000, "삼겹살 숙주볶음", MenuStatus.AVAILABLE
-        );
+        store.setStatus(StoreStatus.CLOSED);
+        Menu newMenu = Menu.createMenu(
+                store, "메인", "삼겹살 숙주볶음", 12000, "pizza.jpg", "돼지고기 100g");
         //when
         Long savedMenu = menuService.saveMenu(newMenu);
+
         //then
         assertEquals(savedMenu, menuService.findAllMenu().get(0).getId());
     }
