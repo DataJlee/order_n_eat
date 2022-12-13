@@ -31,9 +31,38 @@ public class Order extends BaseTimeEntity{
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderLine> orderLines = new ArrayList<>();
 
+    protected Order(){
+    }
+
     //연관관계 편의 메서드
     public void addOrderLine(OrderLine orderLine){
         orderLines.add(orderLine);
         orderLine.setOrder(this);
+    }
+
+    public static Order createOrder(Member member, Store store, OrderLine... orderLines){
+        Order order = new Order();
+        order.setMember(member);
+        order.setStore(store);
+
+        for (OrderLine orderLine : orderLines){
+            order.addOrderLine(orderLine);
+        }
+        order.setStatus(OrderStatus.ORDERED);
+        return order;
+    }
+
+    public void cancelOrder(){
+        this.setStatus(OrderStatus.CANCELED);
+    }
+
+    public int getTotalPrice(){
+        int totalPrice = 0;
+
+        for (OrderLine orderLine : orderLines){
+            totalPrice += orderLine.getTotalPrice();
+        }
+
+        return totalPrice;
     }
 }
