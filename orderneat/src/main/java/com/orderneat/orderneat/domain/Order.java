@@ -26,6 +26,7 @@ public class Order extends BaseTimeEntity{
     private Store store;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "order_status")
     private OrderStatus status;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)

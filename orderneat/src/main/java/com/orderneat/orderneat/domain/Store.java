@@ -14,16 +14,20 @@ public class Store extends BaseTimeEntity{
     @Column(name = "store_id")
     private Long id;
 
+    @Column(name = "store_name")
     private String name;
 
+    @Column(name = "store_category")
     private String category;
 
-    @Embedded
-    private Address address;
+//    @Embedded
+//    private Address address;
 
+    @Column(name = "store_contact")
     private String contact;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "store_status")
     private StoreStatus status;
 
     public boolean isOpen(){

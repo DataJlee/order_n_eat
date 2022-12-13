@@ -19,17 +19,23 @@ public class Menu extends BaseTimeEntity{
     @JoinColumn(name = "store_id")
     private Store store;
 
+    @Column(name = "menu_category")
     private String category;
 
+    @Column(name = "menu_name")
     private String name;
 
+    @Column(name = "menu_price")
     private Integer price;
 
+    @Column(name = "menu_img_url")
     private String imgUrl;
 
+    @Column(name = "menu_desc")
     private String desc;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "menu_status")
     private MenuStatus status;
 
     protected Menu(){
