@@ -1,12 +1,15 @@
 package com.orderneat.orderneat.domain;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 public class Store extends BaseTimeEntity{
 
     @Id
@@ -39,5 +42,14 @@ public class Store extends BaseTimeEntity{
             isOpen = false;
         }
         return isOpen;
+    }
+
+    @Builder
+    public Store(Long id, String name, String category, String contact) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.contact = contact;
+        this.status = StoreStatus.OPEN;
     }
 }
