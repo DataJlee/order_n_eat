@@ -1,0 +1,61 @@
+@charset "UTF-8";
+.member-login-button{
+	background-color: #e75e8d
+}
+
+/* 로그인 실패시 경고글 */
+.login_warn{
+    margin-top: 30px;
+    text-align: center;
+    color : red;
+}
+
+.box{
+	width: 52px;
+	height: 52px;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+
+.sns_login{
+	height: 55px;
+	text-align: center;
+}
+
+.blind{
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}
+
+.kakao{
+	background-image:url("../images/logo_images.png");
+	background-size: 626px 422.5px;
+	background-position: -440px -246px;
+}
+.naver{
+	background-image:url("../images/logo_images.png");
+	background-size: 626px 422.5px;
+	background-position: -497px -246px;
+}
+.facebook{
+	background-image:url("../images/logo_images.png");
+	background-size: 626px 422.5px;
+	background-position: -383px -246px;
+}
+
+.sns{
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 300;
+	color: black;
+	text-align: center;
+}
+
+.error{
+	font-size: 13px;
+	color: #b41717;
+}
+

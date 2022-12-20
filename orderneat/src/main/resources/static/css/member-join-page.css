@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/* 중복아이디 존재하지 않는경우 */
+.id_input_re_1 {
+    color: green;
+    display: none;
+    font-size: small;
+    text-align: center;
+}
+/* 중복아이디 존재하는 경우 */
+.id_input_re_2 {
+    color: red;
+    display: none;
+    font-size: small;
+    text-align: center;
+}
+
+.member-join-button {
+    background-color: #e75e8d;
+}
+
+.email-validate-btn {
+    background-color: #e75e8d;
+    width: 90px;
+}
+
+.correct{
+    color: green;
+    font-size: small;
+    text-align: center;
+}
+.incorrect{
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+
+
+/* float 속성 해제 */
+.clearfix {
+    clear: both;
+}
+
+/* 유효성 검사 문구 */
+.final_id_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+.final_pw_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+.final_pwck_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+.final_name_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+.final_mail_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+.final_phonenum_ck{
+    display: none;
+}
+.final_addr_ck{
+    display: none;
+    color: red;
+    font-size: small;
+    text-align: center;
+}
+
+/* 비밀번호 확인 일치 유효성검사 */
+.pwck_input_re_1{
+    color: green;
+    display: none;
+    font-size: small;
+    text-align: center;
+}
+.pwck_input_re_2{
+    color: red;
+    display: none;
+    font-size: small;
+    text-align: center;
+}
+
+/* float 속성 해제 */
+.clearfix{
+    clear: both;
+}
