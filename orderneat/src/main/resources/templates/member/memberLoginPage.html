@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <title>Order n Eat 오더앤잇</title>
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/sb-admin-2.min.css}">
+  <link rel="stylesheet" th:href="@{/css/member-login-page.css}">
+</head>
+<body class="bg-gradient-primary">
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4">로그인</h1>
+                    </div>
+                    <form class="user" role="form" action="/member/login" id="login_form" method="post">
+                      <div class="form-group">
+                        <input type="email" name="email" class="form-control form-control-user"
+                               id="exampleInputId" aria-describedby="emailHelp" placeholder="이메일 입력">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control form-control-user"
+                               id="exampleInputPassword" placeholder="비밀번호 입력" name="password">
+                      </div>
+
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox small">
+                          <input type="checkbox" class="custom-control-input" id="customCheck">
+                        </div>
+
+                      </div>
+                      <input type="submit" class="member-login-button btn btn-primary btn-user btn-block login_button"
+                             value="로그인">
+
+                      <hr>
+                      <p class="sns">SNS계정으로 간편 로그인</p>
+<!--                      <div class="sns_login">-->
+<!--                        <a href="/account/social-login/kakao/" class="box social kakao">-->
+<!--                          <span class="blind">카카오톡 간편 로그인</span>-->
+<!--                        </a>-->
+<!--                        <a href="/account/social-login/naver/" class="box social naver">-->
+<!--                          <span class="blind">네이버 간편 로그인</span>-->
+<!--                        </a>-->
+<!--                        <a href="/account/social-login/facebook/" class="box social facebook">-->
+<!--                          <span class="blind">페이스북 간편 로그인</span>-->
+<!--                        </a>-->
+<!--                      </div>-->
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                      <a class="small" href="/member/join">회원가입</a>
+                    </div>
+                    <div class="text-center">
+                      <a class="small" href="/">홈으로 돌아가기</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+
+
+</html>
