@@ -20,7 +20,7 @@ public class OrderService {
     private final StoreRepository storeRepository;
 
     @Transactional
-    public Long order(Long memberId, Long menuId, Long storeId, int quantity){
+    public Long placeOrder(Long memberId, Long menuId, Long storeId, int quantity){
 
         Member member = memberRepository.findOne(memberId);
         Menu menu = menuRepository.findOne(menuId);
