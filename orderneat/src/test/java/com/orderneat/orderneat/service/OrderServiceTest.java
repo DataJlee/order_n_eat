@@ -75,9 +75,7 @@ public class OrderServiceTest {
     private Member createDefaultMember() {
         Member newMember = Member.builder()
                 .email("jaek1997")
-                .gender("M")
                 .password("123")
-                .yearOfBirth("1998")
                 .build();
         em.persist(newMember);
         return newMember;
