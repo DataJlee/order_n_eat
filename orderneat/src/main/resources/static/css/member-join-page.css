@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.fieldError {
+    color: orangered;
+    font-size: small;
+    text-align: center;
+}
 /* 중복아이디 존재하지 않는경우 */
 .id_input_re_1 {
     color: green;
