@@ -19,30 +19,5 @@ public class MemberApi {
 
     private final MemberService memberService;
 
-    @PostMapping("/api/v2/members")
-    public MemberJoinResponse saveMemberV2(@RequestBody @Valid MemberJoinRequest request){
-        Member member = Member.builder()
-                .email(request.email)
-                .password(request.password).build();
-        Long id = memberService.join(member);
-        return new MemberJoinResponse(id);
-    }
-    @Data
-    static class MemberJoinResponse{
-        private Long id;
-
-        public MemberJoinResponse(Long id) {
-            this.id = id;
-        }
-    }
-
-    @Data
-    static class MemberJoinRequest{
-
-        @NotEmpty
-        private String email;
-
-        @NotEmpty
-        private String password;
-    }
+    
 }
