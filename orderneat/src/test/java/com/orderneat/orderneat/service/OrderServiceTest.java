@@ -1,6 +1,7 @@
 package com.orderneat.orderneat.service;
 
 import com.orderneat.orderneat.domain.*;
+import com.orderneat.orderneat.dto.MenuFormDTO;
 import com.orderneat.orderneat.repository.OrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -82,7 +83,8 @@ public class OrderServiceTest {
     }
 
     private Menu createDefaultMenu(Store store) {
-        Menu menu = Menu.createMenu(store, "메인", "짜장면", 10000, "jjajang.jpg", "맛있는 짜장면");
+        MenuFormDTO menuFormDto = new MenuFormDTO();
+        Menu menu = Menu.createMenu(menuFormDto);
         em.persist(menu);
         return menu;
     }

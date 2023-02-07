@@ -1,5 +1,6 @@
 package com.orderneat.orderneat.domain;
 
+import com.orderneat.orderneat.dto.MenuFormDTO;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,8 @@ public class OrderLineTest {
     public void createOrderLine() {
         Store store = new Store();
         store.setName("하남돼지집");
-        Menu menu = Menu.createMenu(store, "메인", "쭈꾸미 볶음", 10000, "String menuImgUrl", "desc");
+        MenuFormDTO menuFormDto = new MenuFormDTO();
+        Menu menu = Menu.createMenu(menuFormDto);
         //when
         OrderLine orderLine =  OrderLine.createOrderLine(menu, 10000, 2);
         //then
@@ -21,7 +23,8 @@ public class OrderLineTest {
     public void getTotalPrice() {
         Store store = new Store();
         store.setName("하남돼지집");
-        Menu menu = Menu.createMenu(store, "메인", "쭈꾸미 볶음", 10000, "String menuImgUrl", "desc");
+        MenuFormDTO menuFormDto = new MenuFormDTO();
+        Menu menu = Menu.createMenu(menuFormDto);
         //when
         OrderLine orderLine =  OrderLine.createOrderLine(menu, 10000, 2);
         //then

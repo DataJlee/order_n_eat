@@ -1,0 +1,9 @@
+body, button, code, input, select, table, textarea {
+    font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+form-group{
+    width: 150px;
+}

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="utf-8" xmlns:th="http://www.thymeleaf.org">
+<html lang="utf-8" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://thymeleaf.org/extras/spring-security">
 
-  <head th:replace="fragments/header :: header">
-
-  </head>
+<head th:replace="fragments/header :: header"></head>
 
 <body>
-
 <!--   ***** Preloader Start *****-->
 <!--  <div id="js-preloader" class="js-preloader">-->
 <!--    <div class="preloader-inner">-->
@@ -20,194 +18,39 @@
 <!--  </div>-->
 <!--   ***** Preloader End *****-->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="/" class="logo">
-                        <!-- <img src="//images/logo.png" alt=""> -->
-                        <h1 class="logo-text">오더 앤 잇</h1>
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** 식당검색 ***** -->
-<!--                    <div class="search-input">-->
-<!--                      <form id="search" action="#">-->
-<!--                        <input type="text" placeholder="식당검색" id='searchText' name="searchKeyword" onkeypress="handle" />-->
-<!--                        <i class="fa fa-search"></i>-->
-<!--                      </form>-->
-<!--                    </div>-->
-                    <!-- ***** 식당검색 End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-<!--                        <li><a href="/" class="active">HOME</a></li>-->
-<!--                        <li><a href="browse.html">식당 정보</a></li>-->
-<!--                        <li><a href="details.html">Details</a></li>-->
-<!--                        <li><a href="streams.html">Streams</a></li> -->
-                        <li><a href="/member/memberInfo">회원 정보<img src="/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
+<!-- ***** Header Area Start ***** -->
+<header th:replace="fragments/body-header :: body-header">
+</header>
+<!-- ***** Header Area End ***** -->
+  <!-- Container start-->
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
-
-          <!-- ***** 메인 배너(가맹문의) ***** -->
-          <div class="main-banner">
-            <div class="row">
-              <div class="col-lg-7">
-                <div class="header-text">
-                  <h6>안녕하세요 사장님, 오더 앤 잇입니다</h6>
-                    <h4>주문은 <em>오더 앤 잇</em>으로</h4>
-                  <div class="main-button">
-                    <a href="browse.html">가맹문의</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** 메인 배너(가맹문의) ***** -->
-
-          <!-- ***** 인기 식당 ***** -->
-<!--          <div class="most-popular">-->
-<!--            <div class="row">-->
-<!--              <div class="col-lg-12">-->
-<!--                <div class="heading-section">-->
-<!--                  <h4><em>HOT</em> 식당</h4>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-01.jpg" alt="">-->
-<!--                      <h4>Fortnite<br><span>Sandbox</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-02.jpg" alt="">-->
-<!--                      <h4>PubG<br><span>Battle S</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-03.jpg" alt="">-->
-<!--                      <h4>Dota2<br><span>Steam-X</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-04.jpg" alt="">-->
-<!--                      <h4>CS-GO<br><span>Legendary</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-6">-->
-<!--                    <div class="item">-->
-<!--                      <div class="row">-->
-<!--                        <div class="col-lg-6 col-sm-6">-->
-<!--                          <div class="item inner-item">-->
-<!--                            <img src="//images/popular-05.jpg" alt="">-->
-<!--                            <h4>Mini Craft<br><span>Legendary</span></h4>-->
-<!--                            <ul>-->
-<!--                              <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                              <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                            </ul>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-6 col-sm-6">-->
-<!--                          <div class="item">-->
-<!--                            <img src="//images/popular-06.jpg" alt="">-->
-<!--                            <h4>Eagles Fly<br><span>Matrix Games</span></h4>-->
-<!--                            <ul>-->
-<!--                              <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                              <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                            </ul>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-07.jpg" alt="">-->
-<!--                      <h4>Warface<br><span>Max 3D</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-3 col-sm-6">-->
-<!--                    <div class="item">-->
-<!--                      <img src="//images/popular-08.jpg" alt="">-->
-<!--                      <h4>Warcraft<br><span>Legend</span></h4>-->
-<!--                      <ul>-->
-<!--                        <li><i class="fa fa-star"></i> 4.8</li>-->
-<!--                        <li><i class="fa fa-download"></i> 2.3M</li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-lg-12">-->
-<!--                    <div class="main-button">-->
-<!--                      <a href="browse.html">식당 더보기</a>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-          <!-- ***** Most Popular End ***** -->
-          </div>
+        <div class="page-content" style="display: flex; justify-content: center; align-items: center">
+          <ul class="main-list" style="padding-left: 10px">
+            <li class="main-list-item">
+              <a href="/store/add"><i class="fi fi-rr-add fa-4x" style="color: whitesmoke"></i></a>
+              <div class="main-link-text add-store-text">업체 신규 등록</div>
+            </li>
+            <li class="main-list-item">
+              <a href=""><i class="fi fi-rr-home fa-4x" style="color: whitesmoke"></i></a>
+              <div class="main-link-text my-store-text" style="padding-right: 2px">나의 업체 보기</div>
+            </li>
+            <li class="main-list-item">
+              <a href=""><i class="fi fi fi-rr-document fa-4x" style="color: whitesmoke"></i></a>
+              <div class="main-link-text store-order-text">주문 관리하기</div>
+            </li>
+            <li class="main-list-item">
+              <a href=""><i class="fi fi-rr-interrogation fa-4x" style="color: whitesmoke"></i></a>
+              <div class="main-link-text store-order-text" style="padding-left: 8px">도움말 보기</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div> <!-- Container end-->
-          
-  
-  <footer th:replace="fragments/footer :: footer">
-
-  </footer>
-
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-
-  <script src="/js/isotope.min.js"></script>
-  <script src="/js/owl-carousel.js"></script>
-  <script src="/js/tabs.js"></script>
-  <script src="/js/popup.js"></script>
-  <script src="/js/custom.js"></script>
-
-
+  <!-- footer -->
+  <footer th:replace="fragments/footer :: footer"></footer>
+  <!-- footer end -->
   </body>
-
 </html>

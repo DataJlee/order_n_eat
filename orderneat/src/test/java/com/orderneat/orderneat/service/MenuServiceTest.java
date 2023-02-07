@@ -4,6 +4,7 @@ import com.orderneat.orderneat.domain.Menu;
 import com.orderneat.orderneat.domain.MenuStatus;
 import com.orderneat.orderneat.domain.Store;
 import com.orderneat.orderneat.domain.StoreStatus;
+import com.orderneat.orderneat.dto.MenuFormDTO;
 import com.orderneat.orderneat.repository.MenuRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,10 +31,10 @@ public class MenuServiceTest {
         Store store = new Store();
         store.setName("하남돼지집");
         store.setStatus(StoreStatus.CLOSED);
-        Menu newMenu = Menu.createMenu(
-                store, "메인", "삼겹살 숙주볶음", 12000, "pizza.jpg", "돼지고기 100g");
+        MenuFormDTO menuFormDto = new MenuFormDTO();
+        Menu menu = Menu.createMenu(menuFormDto);
         //when
-        Long savedMenu = menuService.saveMenu(newMenu);
+        Long savedMenu = menuService.saveMenu(menu);
 
         //then
         assertEquals(savedMenu, menuService.findAllMenu().get(0).getId());

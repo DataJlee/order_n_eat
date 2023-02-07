@@ -55,7 +55,8 @@
 }
 
 .error{
-	font-size: 13px;
-	color: #b41717;
+	color: orangered;
+	font-size: small;
+	text-align: center;
 }
 

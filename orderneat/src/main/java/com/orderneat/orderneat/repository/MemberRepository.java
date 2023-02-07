@@ -27,9 +27,12 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    public List<Member> findMemberByEmail(String email){
+    //단건 조회를 할 수 있지만 반환값이 없을 경우 예외처리가 까다로워 컬렉션으로 조회한다
+    public List<Member> findByEmail(String email){
         return em.createQuery("select m from Member m where m.email = :email", Member.class)
                 .setParameter("email", email)
                 .getResultList();
     }
+
+
 }

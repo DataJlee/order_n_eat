@@ -20,37 +20,29 @@ public class Member extends BaseTimeEntity{
     @Column(unique = true)
     private String email;
 
-    private String name;
-
     private String password;
-
-    @Embedded
-    private Address address;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @Builder
-    public Member(String email, String name, String password, Address address){
+    public Member(String email, String password, Role role){
         this.email = email;
-        this.name = name;
         this.password = password;
-        this.address = address;
-        this.role = Role.USER;
+        this.role = role;
     }
 
     protected Member() {
     }
 
     public static Member createMember(MemberJoinFormDTO memberJoinFormDTO, PasswordEncoder passwordEncoder){
-        Address address = new Address(memberJoinFormDTO.getPostalCode(), memberJoinFormDTO.getAddress1(),
-                memberJoinFormDTO.getAddress2());
         Member member = Member.builder()
                 .email(memberJoinFormDTO.getEmail())
-                .name(memberJoinFormDTO.getName())
                 .password(passwordEncoder.encode(memberJoinFormDTO.getPassword()))
-                .address(address)
+                .role(Role.USER)
                 .build();
         return member;
     }
+
+
 }

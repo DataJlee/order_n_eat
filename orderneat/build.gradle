@@ -30,9 +30,13 @@ dependencies {
 	//Test
 	implementation 'junit:junit:4.13.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 
 	//p6spy
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.7")
+
+	//Thymeleaf
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
 	//Lombok
 	compileOnly 'org.projectlombok:lombok'

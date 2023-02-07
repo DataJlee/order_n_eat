@@ -41,7 +41,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 .logo-text {
-  font-family: 'Jua', sans-serif;
+
 }
 
 .member-join-link {
@@ -106,8 +106,8 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+  font-family: 'naver-font', sans-serif;
+  font-weight: 700;
   background-color: #1e1e1e;
   font-size: 16px;
   -ms-text-size-adjust: 100%;
@@ -116,8 +116,7 @@ html, body {
 }
 
 a {
-	color: #CCC;
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 a:hover {
 	color: #F99;
@@ -153,7 +152,7 @@ Global Styles
 html,
 body {
   background: #1f2122;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'naver-font', sans-serif;
 }
 
 body .page-content {
@@ -161,6 +160,7 @@ body .page-content {
   background-color: #27292a;
   padding: 60px;
   border-radius: 23px;
+  display: flex;
 }
 
 p {
@@ -479,7 +479,7 @@ Header Style
   font-weight: 400;
   font-size: 14px;
   text-transform: capitalize;
-  color: #666;
+  color: whitesmoke;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -490,11 +490,11 @@ Header Style
   letter-spacing: .3px;
 }
 
-.header-area .main-nav .nav li:last-child a {
-  background-color: #27292a;
-  padding: 8px 10px 8px 20px;
-  border-radius: 23px;
-}
+/*.header-area .main-nav .nav li:last-child a {*/
+/*  background-color: #27292a;*/
+/*  padding: 8px 8px 8px 7px;*/
+/*  border-radius: 23px;*/
+/*}*/
 
 .header-area .main-nav .nav li:last-child a img {
   max-width: 30px;
@@ -507,16 +507,16 @@ Header Style
   padding-left: 25px !important;
 }
 
-.header-area .main-nav .nav li:hover a,
-.header-area .main-nav .nav li a.active {
-  color: #e75e8d !important;
-}
+/*.header-area .main-nav .nav li:hover a,*/
+/*.header-area .main-nav .nav li a.active {*/
+/*  color: #e75e8d !important;*/
+/*}*/
 
-.header-area .main-nav .nav li:last-child:hover a,
-.header-area .main-nav .nav li:last-child a.active {
-  color: #fff !important;
-  background-color: #e75e8d !important;
-}
+/*.header-area .main-nav .nav li:last-child:hover a,*/
+/*.header-area .main-nav .nav li:last-child a.active {*/
+/*  color: #fff !important;*/
+/*  background-color: #e75e8d !important;*/
+/*}*/
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
@@ -526,7 +526,7 @@ Header Style
 
 .header-area .main-nav .nav li.has-sub {
   position: relative;
-  padding-right: 15px;
+  padding-right: 20px;
 }
 
 .header-area .main-nav .menu-trigger {
@@ -1674,6 +1674,7 @@ body {
 @media (max-width: 767px) {
   body .page-content {
     padding: 0px 30px;
+    display: flex;
   }
   .main-banner {
     text-align: center;
