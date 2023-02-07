@@ -16,8 +16,5 @@ import javax.validation.constraints.NotEmpty;
 @RequiredArgsConstructor
 @Slf4j
 public class MemberApi {
-
-    private final MemberService memberService;
-
     
 }
