@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="utf-8" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<header class="header-area header-sticky" th:fragment="bodyHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        <!-- <img src="//images/logo.png" alt=""> -->
+                        <h1 class="logo-text">오더 앤 잇</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** 식당검색 ***** -->
+                    <!--                    <div class="search-input">-->
+                    <!--                      <form id="search" action="#">-->
+                    <!--                        <input type="text" placeholder="식당검색" id='searchText' name="searchKeyword" onkeypress="handle" />-->
+                    <!--                        <i class="fa fa-search"></i>-->
+                    <!--                      </form>-->
+                    <!--                    </div>-->
+                    <!-- ***** 식당검색 End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="/" class="active">HOME</a></li>
+                        <li sec:authorize="isAuthenticated()"><a href="browse.html">주문 현황</a></li>
+                        <li sec:authorize="isAuthenticated()"><a href="/">매출 통계(COMING SOON)</a></li>
+
+                        <li sec:authorize="isAnonymous()"><a href="/member/login">로그인</a></li>
+                        <div class="dropdown" sec:authorize="isAuthenticated()">
+                            <button style="margin-top: 5px" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                셀프서비스
+                            </button>
+                            <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
+                                <li><a href="" class="dropdown-item-text disabled active">회원정보수정</a></li>
+                                <li><a href="/member/info" class="dropdown-item-text active">식당정보관리</a></li>
+                                <li><a href="/member/logout" class="dropdown-item-text">로그아웃</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
