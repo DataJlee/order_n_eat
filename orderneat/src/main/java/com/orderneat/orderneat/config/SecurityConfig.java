@@ -19,32 +19,37 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    final MemberService memberService;
-
+//    @Override
+//    protected void configure(HttpSecurity httpSecurity) throws Exception {
+//        httpSecurity.formLogin()
+//                .loginPage("/member/login")
+//                .defaultSuccessUrl("/")
+//                .usernameParameter("email")
+//                .failureUrl("/member/login/error")
+//                .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+//                .logoutSuccessUrl("/");
+//
+//        httpSecurity.authorizeRequests()
+//                .mvcMatchers("/", "/api/**", "/member/**", "/fonts/**", "/css/**", "/js/**",
+//                        "/fonts/**", "/images/**", "/icons/**").permitAll()
+//                .anyRequest().authenticated();
+//        httpSecurity.csrf().disable();
+//    }
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.formLogin()
-                .loginPage("/member/login")
-                .defaultSuccessUrl("/")
-                .usernameParameter("email")
-                .failureUrl("/member/login/error")
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-                .logoutSuccessUrl("/");
-
-        httpSecurity.authorizeRequests()
-                .mvcMatchers("/", "/api/**", "/member/**", "/fonts/**", "/css/**", "/js/**",
-                        "/fonts/**", "/images/**", "/icons/**").permitAll()
-                .anyRequest().authenticated();
-        httpSecurity.csrf().disable();
+        httpSecurity
+                .csrf()
+                .disable();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(memberService)
-                .passwordEncoder(passwordEncoder());
-    }
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(memberService)
+//                .passwordEncoder(passwordEncoder());
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
