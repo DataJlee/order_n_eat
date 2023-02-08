@@ -1,12 +1,16 @@
 package com.orderneat.orderneat.service;
 
 import com.orderneat.orderneat.domain.Member;
+import com.orderneat.orderneat.domain.Role;
+import com.orderneat.orderneat.dto.member.MemberJoinRequest;
+import com.orderneat.orderneat.dto.member.MemberJoinResponse;
 import com.orderneat.orderneat.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,12 +23,20 @@ import java.util.Optional;
 public class MemberService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Long join(Member member){
+    public MemberJoinResponse join(final MemberJoinRequest memberJoinRequest){
+        Member member = Member.builder()
+                    .email(memberJoinRequest.getEmail())
+                    .password(passwordEncoder.encode(memberJoinRequest.getPassword()))
+                    .role(Role.USER)
+                    .build();
         validateDuplicateMember(member);
         memberRepository.save(member);
-        return member.getId();
+        MemberJoinResponse memberJoinResponse = new MemberJoinResponse();
+        memberJoinResponse.setId(member.getId());
+        return memberJoinResponse;
     }
 
     private void validateDuplicateMember(Member member) {
