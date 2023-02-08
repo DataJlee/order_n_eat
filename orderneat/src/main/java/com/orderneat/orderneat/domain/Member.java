@@ -1,6 +1,7 @@
 package com.orderneat.orderneat.domain;
 
 import com.orderneat.orderneat.dto.MemberJoinFormDTO;
+import com.orderneat.orderneat.dto.member.MemberJoinRequest;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,10 +36,10 @@ public class Member extends BaseTimeEntity{
     protected Member() {
     }
 
-    public static Member createMember(MemberJoinFormDTO memberJoinFormDTO, PasswordEncoder passwordEncoder){
+    public static Member createMember(MemberJoinRequest memberJoinRequest, PasswordEncoder passwordEncoder){
         Member member = Member.builder()
-                .email(memberJoinFormDTO.getEmail())
-                .password(passwordEncoder.encode(memberJoinFormDTO.getPassword()))
+                .email(memberJoinRequest.getEmail())
+                .password(passwordEncoder.encode(memberJoinRequest.getPassword()))
                 .role(Role.USER)
                 .build();
         return member;
