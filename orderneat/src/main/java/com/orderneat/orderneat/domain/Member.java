@@ -1,11 +1,9 @@
 package com.orderneat.orderneat.domain;
 
-import com.orderneat.orderneat.dto.MemberJoinFormDTO;
-import com.orderneat.orderneat.dto.member.MemberJoinRequest;
+
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import javax.persistence.*;
 
@@ -35,15 +33,4 @@ public class Member extends BaseTimeEntity{
 
     protected Member() {
     }
-
-    public static Member createMember(MemberJoinRequest memberJoinRequest, PasswordEncoder passwordEncoder){
-        Member member = Member.builder()
-                .email(memberJoinRequest.getEmail())
-                .password(passwordEncoder.encode(memberJoinRequest.getPassword()))
-                .role(Role.USER)
-                .build();
-        return member;
-    }
-
-
 }
