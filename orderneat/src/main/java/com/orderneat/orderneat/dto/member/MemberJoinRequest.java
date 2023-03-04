@@ -1,15 +1,11 @@
 package com.orderneat.orderneat.dto.member;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-@Getter @Setter
-@RequiredArgsConstructor
+@Getter
 public class MemberJoinRequest {
 
     @NotEmpty
@@ -18,4 +14,11 @@ public class MemberJoinRequest {
 
     @NotEmpty
     private String password;
+
+    public MemberJoinRequest(){}
+
+    public MemberJoinRequest(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
 }
