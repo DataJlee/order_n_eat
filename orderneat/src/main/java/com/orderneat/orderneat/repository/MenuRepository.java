@@ -1,32 +1,8 @@
 package com.orderneat.orderneat.repository;
 
 import com.orderneat.orderneat.domain.Menu;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.EntityManager;
-import java.util.List;
 
-@Repository
-@RequiredArgsConstructor
-public class MenuRepository {
-
-    private final EntityManager em;
-
-    public void save(Menu menu){
-        if (menu.getId() == null){
-            em.persist(menu);
-        }else {
-            em.merge(menu);
-        }
-    }
-
-    public Menu findOne(Long id){
-        return em.find(Menu.class, id);
-    }
-
-    public List<Menu> findAll(){
-        return em.createQuery("select m from Menu m", Menu.class)
-                .getResultList();
-    }
+public interface MenuRepository extends JpaRepository<Menu, Long> {
 }
