@@ -1,24 +1,28 @@
 package com.orderneat.orderneat.dto.store;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-
 import javax.validation.constraints.NotEmpty;
 
-@Getter @Setter
-@RequiredArgsConstructor
+@Getter
 public class StoreRegisterRequest {
 
     @NotEmpty
-    private String storeName;
+    private String name;
 
     @NotEmpty
-    private String storeCategory;
+    private String category;
+
+    private String address;
 
     @NotEmpty
-    private String storeAddress;
+    private String contact;
 
-    @NotEmpty
-    private String storeContact;
+    protected StoreRegisterRequest(){}
+
+    public StoreRegisterRequest(String name, String category, String address, String contact){
+        this.name = name;
+        this.category = category;
+        this.address = address;
+        this.contact = contact;
+    }
 }
