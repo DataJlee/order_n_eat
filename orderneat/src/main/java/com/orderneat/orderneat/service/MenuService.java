@@ -16,12 +16,12 @@ public class MenuService {
     private final MenuRepository menuRepository;
 
     @Transactional
-    public Long saveMenu(Menu menu){
+    public Long save(Menu menu){
         menuRepository.save(menu);
         return menu.getId();
     }
 
-    public List<Menu> findAllMenu(){
+    public List<Menu> findAllMenus(){
         return menuRepository.findAll();
     }
 }
