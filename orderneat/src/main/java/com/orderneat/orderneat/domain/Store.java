@@ -3,14 +3,14 @@ package com.orderneat.orderneat.domain;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+import static com.orderneat.orderneat.domain.StoreStatus.*;
+
 @Entity
 @Getter @Setter
-@NoArgsConstructor
 public class Store extends BaseTimeEntity{
 
     @Id
@@ -18,37 +18,40 @@ public class Store extends BaseTimeEntity{
     @Column(name = "store_id")
     private Long id;
 
-    @Column(name = "store_name")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
     private String name;
 
-    @Column(name = "store_category")
     private String category;
 
 //    @Embedded
 //    private Address address;
-    @Column(name = "store_address")
     private String address;
 
-    @Column(name = "store_contact")
     private String contact;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "store_status")
     private StoreStatus status;
 
     public boolean isOpen(){
-        boolean isOpen = status == StoreStatus.OPEN;
+        boolean isOpen = status == OPEN;
         return isOpen;
     }
 
+    protected Store(){
+    }
+
     @Builder
-    public Store(Long id, String name, String category, String contact, String address) {
+    public Store(Long id, Member member, String name, String category, String contact, String address) {
         this.id = id;
+        this.member = member;
         this.name = name;
         this.category = category;
         this.contact = contact;
         this.address = address;
-        this.status = StoreStatus.OPEN;
+        this.status = OPEN;
     }
 
 //    public static Store createStore(StoreRegistFormDTO storeRegistFormDTO){
