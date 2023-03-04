@@ -1,7 +1,6 @@
 package com.orderneat.orderneat;
 
-import com.orderneat.orderneat.domain.Member;
-import com.orderneat.orderneat.domain.Role;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +10,7 @@ import javax.transaction.Transactional;
 
 @Component
 @RequiredArgsConstructor
-public class InitDb {
+public class InitDbForDev {
 
     private final InitService initService;
 
@@ -27,12 +26,12 @@ public class InitDb {
 
         private final EntityManager em;
         public void initDb1(){
-            Member member1 = new Member("jaek1997@gmail.com", "12345", Role.USER);
-            Member member2 = new Member("chlee1998@naver.com", "123455", Role.USER);
-            Member member3 = new Member("sansimk@gmail.com", "1234", Role.USER);
-            em.persist(member1);
-            em.persist(member2);
-            em.persist(member3);
+//            Member member1 = new Member("jaek1997@gmail.com", "$2a$10$/Ixv2xzNCMKfCTq/WRaxkeONZA7cZV74CwqFNwwbKjaCEXa5BpXLe", Role.ROLE_USER);
+//            Member member2 = new Member("chlee1998@naver.com", "$2a$10$/Ixv2xzNCMKfCTq/WRaxkeONZA7cZV74CwqFNwwbKjaCEXa5BpXLe", Role.ROLE_USER);
+//            Member member3 = new Member("sangsimk@gmail.com", "$2a$10$/Ixv2xzNCMKfCTq/WRaxkeONZA7cZV74CwqFNwwbKjaCEXa5BpXLe", Role.ROLE_USER);
+//            em.persist(member1);
+//            em.persist(member2);
+//            em.persist(member3);
         }
 
 
