@@ -1,6 +1,11 @@
 #spring:
-#
-#logging:
-#  level:
-#    org.hibernate.SQL: debug
-#    org.hibernate.type: trace
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+jwt:
+  secret: aiksjfdalkADKFAJE3455ALKDANREBBCCCEIARAHAHAHKHE3DJADKJVHNFKHFUGRYRBFBKJEHFGAABCCHH44455KLJAKDAJAJ
+  accessTokenExpireLengthInMinutes: 10
+  refreshTokenExpireLengthInMinutes: 10
