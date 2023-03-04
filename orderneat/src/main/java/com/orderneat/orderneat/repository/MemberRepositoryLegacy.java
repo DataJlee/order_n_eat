@@ -3,19 +3,22 @@ package com.orderneat.orderneat.repository;
 import com.orderneat.orderneat.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class MemberRepository {
+public class MemberRepositoryLegacy {
 
     private final EntityManager em;
 
-    public void save(Member member){
+    @Transactional
+    public Member save(Member member){
         em.persist(member);
+        return member;
+
     }
 
     public Member findOne(Long id){
