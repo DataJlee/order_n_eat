@@ -1,9 +1,7 @@
 package com.orderneat.orderneat.domain;
 
-import com.orderneat.orderneat.dto.MenuFormDTO;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -52,12 +50,5 @@ public class Menu extends BaseTimeEntity{
     }
 
     protected Menu(){
-    }
-
-    public static Menu createMenu(MenuFormDTO menuFormDTO){
-        Menu menu = Menu.builder()
-                .category(menuFormDTO.getCategory())
-                .build();
-        return menu;
     }
 }
